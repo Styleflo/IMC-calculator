@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Header from './components/Header'
 
 function App() {
     const [poids, setPoids] = useState('');
@@ -28,7 +29,7 @@ function App() {
 
     return (
         <div>
-            <h1>Calculateur d'IMC</h1>
+            <Header />
             <input type="number" placeholder="Poids (kg)" onChange={(e) => setPoids(e.target.value)} />
             <input type="number" placeholder="Taille (m)" onChange={(e) => setTaille(e.target.value)} />
             <button onClick={calculerIMC}>Calculer</button>
