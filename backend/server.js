@@ -12,11 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-// À modifier
 app.post('/api/imc', (req, res) => {
     const { poids, taille } = req.body;
 
-    const imc = poids / ((taille/100) * (taille/100));
+    let imc = (poids / ((taille/100) * (taille/100))).toFixed(2);
 
     res.json({ result: imc });
 });

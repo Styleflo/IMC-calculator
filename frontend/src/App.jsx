@@ -1,39 +1,14 @@
-import { useState } from 'react'
 import Header from './components/Header'
+import Imc from './components/Imc.jsx'
 
 function App() {
-    const [poids, setPoids] = useState('');
-    const [taille, setTaille] = useState('');
-    const [resultat, setResultat] = useState(null);
-
-    const calculerIMC = async () => {
-        try {
-            // On envoie la requête POST au backend
-            const response = await fetch('http://localhost:3000/api/imc', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json', // Indispensable pour express.json()
-                },
-                body: JSON.stringify({
-                    poids: parseFloat(poids),
-                    taille: parseFloat(taille)
-                }),
-            });
-
-            const data = await response.json();
-            setResultat(data.result); // On stocke l'IMC reçu du serveur
-        } catch (error) {
-            console.error("Erreur lors du calcul:", error);
-        }
-    };
 
     return (
-        <div>
+        <div className="min-h-screen bg-gray-50 pb-12">
             <Header />
-            <input type="number" placeholder="Poids (kg)" onChange={(e) => setPoids(e.target.value)} />
-            <input type="number" placeholder="Taille (m)" onChange={(e) => setTaille(e.target.value)} />
-            <button onClick={calculerIMC}>Calculer</button>
-            {resultat && <p>Votre IMC est : {resultat}</p>}
+            <main className="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
+                <Imc/>
+            </main>
         </div>
     );
 }
