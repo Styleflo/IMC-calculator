@@ -35,4 +35,5 @@ Rendez-vous à l'url suivant:
 
 ### En locale
 
-```bash git clone [https://github.com/votre-utilisateur/imc-calculator.git](https://github.com/votre-utilisateur/imc-calculator.git)```
+```bash 
+git clone [https://github.com/votre-utilisateur/imc-calculator.git](https://github.com/votre-utilisateur/imc-calculator.git)```
