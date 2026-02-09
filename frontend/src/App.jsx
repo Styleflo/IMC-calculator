@@ -1,14 +1,20 @@
-import Header from './components/Header'
+import Header from './components/Header.jsx'
 import Imc from './components/Imc.jsx'
+import Footer from "./components/Footer.jsx";
 
 function App() {
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-12">
+        /* 1. On transforme le conteneur en colonne flexible qui prend toute la hauteur */
+        <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
+
             <Header />
-            <main className="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-                <Imc/>
+            <main className="flex-grow max-w-4xl mx-auto px-4 w-full ">
+                <Imc />
             </main>
+
+            <Footer />
+
         </div>
     );
 }

@@ -16,8 +16,32 @@ app.post('/api/imc', (req, res) => {
     const { poids, taille } = req.body;
 
     let imc = (poids / ((taille/100) * (taille/100))).toFixed(2);
+    let categorie = "";
 
-    res.json({ result: imc });
+    switch (true) {
+        case (imc < 18.5):
+            categorie = "Insuffisance pondérale (maigreur)";
+            break;
+        case (imc >= 18.5 && imc < 25):
+            categorie = "Corpulences normale";
+            break;
+        case (imc >= 25 && imc < 30):
+            categorie = "Surpoids";
+            break;
+        case (imc >= 30 && imc < 35):
+            categorie = "Obésité modérée";
+            break;
+        case (imc >= 35 && imc < 40):
+            categorie = "Obésité sévère";
+            break;
+        case (imc >= 40):
+            categorie = "Obésité morbide ou massive";
+            break;
+        default:
+            categorie = "Données invalides";
+    }
+
+    res.json({ result: imc, category: categorie});
 });
 
 
