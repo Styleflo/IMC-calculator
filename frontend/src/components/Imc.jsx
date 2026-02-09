@@ -4,8 +4,9 @@ function ChampIMC({setChampIMC, example}) {
     return (
         <input
             type="number"
+            inputMode="decimal"
             placeholder={example}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:text-white"
             onChange={(e) => setChampIMC(e.target.value)}
         />
     )
@@ -55,13 +56,13 @@ function Imc() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Input Poids */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">Poids (kg)</label>
+                        <label className="block text-base font-semibold text-gray-700 mb-2 ml-1 dark:text-white">Poids (kg)</label>
                         <ChampIMC setChampIMC={setPoids} example={"Ex: 75"}/>
                     </div>
 
                     {/* Input Taille */}
                     <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">Taille (cm)</label>
+                        <label className="block text-base font-semibold text-gray-700 mb-2 ml-1 dark:text-white">Taille (cm)</label>
                         <ChampIMC setChampIMC={setTaille} example={"Ex: 180"}/>
                     </div>
                 </div>
@@ -71,7 +72,7 @@ function Imc() {
                     <button
                         onClick={calculerIMC}
                         disabled={!estRempli}
-                        className={`w-full md:w-1/3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 rounded-xl shadow-md transition-all 
+                        className={`w-full md:w-1/3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 rounded-xl shadow-md transition-all dark:from-indigo-900 dark:to-blue-900 
                         ${estRempli ? 'hover:shadow-lg hover:scale-[1.02] active:scale-95' : 'opacity-50 cursor-not-allowed'}`}>
                         Calculer mon IMC
                     </button>
@@ -80,8 +81,8 @@ function Imc() {
 
             {
                 resultat && (
-                    <div className="space-y-6 mt-8 p-6 bg-blue-50 rounded-2xl border border-blue-100 animate-bounce-in text-center">
-                        <p className="text-4xl font-black text-indigo-700 mt-1">{category}</p>
+                    <div className="space-y-6 mt-8 p-6 bg-blue-50 rounded-2xl border border-blue-100 animate-bounce-in text-center dark:bg-slate-900 dark:border-slate-800">
+                        <p className="text-4xl font-black text-indigo-700 mt-1 dark:text-white">{category}</p>
                         <div className="relative h-6 w-full bg-gray-200 rounded-full overflow-hidden flex mb-8">
                             <div className="h-full bg-blue-400" style={{ width: '15%' }}></div>     {/* Maigreur */}
                             <div className="h-full bg-green-500" style={{ width: '25%' }}></div>    {/* Normal */}
@@ -98,7 +99,7 @@ function Imc() {
                                 <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[10px] border-t-black dark:border-t-white"></div>
                             </div>
                         </div>
-                        <p className="text-blue-900 text-lg font-medium">Votre IMC est : {resultat}</p>
+                        <p className="text-blue-900 text-lg font-medium dark:text-white">Votre IMC est : {resultat}</p>
                     </div>
                 )
             }

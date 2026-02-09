@@ -3,15 +3,18 @@ import Imc from './components/Imc.jsx'
 import Footer from "./components/Footer.jsx";
 
 function App() {
-
     return (
-        /* 1. On transforme le conteneur en colonne flexible qui prend toute la hauteur */
+        /* Le conteneur parent occupe toute la hauteur de l'écran */
         <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-slate-950 transition-colors duration-300">
 
             <Header />
-            <main className="flex-grow max-w-4xl mx-auto px-4 w-full ">
-                <Imc />
-            </main>
+
+            {/* Cette div invisible va "grandir" pour occuper l'espace et pousser le footer */}
+            <div className="flex-grow flex items-start justify-center px-4">
+                <main className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 max-w-4xl w-full dark:bg-white/5 dark:backdrop-blur-md dark:border-white/10">
+                    <Imc />
+                </main>
+            </div>
 
             <Footer />
 
@@ -19,4 +22,4 @@ function App() {
     );
 }
 
-export default App
+export default App;
