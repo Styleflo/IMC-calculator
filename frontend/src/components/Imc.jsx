@@ -19,11 +19,13 @@ function Imc() {
     const [category, setcategory] = useState(null);
     const estRempli = poids !== '' && taille !== '';
 
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
     const calculerIMC = async () => {
         if (estRempli) {
             try {
                 // On envoie la requête POST au backend
-                const response = await fetch('http://localhost:3000/api/imc', {
+                const response = await fetch(`${apiUrl}/api/imc`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json', // Indispensable pour express.json()
