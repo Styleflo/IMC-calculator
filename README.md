@@ -35,5 +35,23 @@ Rendez-vous à l'url suivant:
 
 ### En locale
 
+On commence par cloner le projet
 ```bash 
-git clone [https://github.com/votre-utilisateur/imc-calculator.git](https://github.com/votre-utilisateur/imc-calculator.git)```
+git clone https://github.com/votre-utilisateur/imc-calculator.git
+``` 
+```bash
+git clone
+```
+
+Puis on demarre le serveur et le client
+```bash
+cd backend
+npm install
+npm start
+```
+```bash
+cd frontend
+npm install
+npm start
+```
+
