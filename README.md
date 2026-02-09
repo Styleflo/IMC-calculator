@@ -7,25 +7,27 @@ ELle est réalisé dans le cadre du cours Conception et développement de systè
 
 ## Architecture
 
-graph TD
-    subgraph Internet
-        User((Utilisateur))
-    end
++---------------------+        +----------------+
+|  Client - Frontend  | <----> |  Serveur Web   |
++---------------------+        +-------+--------+
+                                       |
+                              +--------v---------+
+                              |  Base de données |
+                              +------------------+
 
-    subgraph "Réseau Public (DMZ)"
-        FW1[Pare-feu Externe]
-        LB[Équilibreur de charge]
-    end
+On a donc un serveur web - backend hebergé par Azure avec sa base de donnée et un client - frontend lui aussi hebergé par azure. 
+Les deux communiques entres eux.
 
-    subgraph "Réseau Privé"
-        APP1[Serveur App A]
-        APP2[Serveur App B]
-        DB[(Base de données)]
-    end
+### Serveur web
 
-    User --> FW1
-    FW1 --> LB
-    LB --> APP1
-    LB --> APP2
-    APP1 --> DB
-    APP2 --> DB
+Il est réalisé en Node.js et expose une API de type REST.
+
+### Client
+
+Il est réalisé en React + Tailwind et fetch l'API du serveur.
+
+
+## Démonstration 
+
+Rendez-vous à l'url suivant: 
+```https://agreeable-island-0bfe8d51e.1.azurestaticapps.net```
