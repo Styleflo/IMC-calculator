@@ -13,9 +13,9 @@ function Footer() {
                         <div className="flex flex-wrap justify-center md:justify-start gap-x-2 gap-y-1 text-[11px] text-gray-400 dark:text-gray-500">
                             <span>Florian Touraine</span>
                             <span className="text-gray-300 dark:text-gray-700 not-italic">•</span>
-                            <span>Valentin </span>
+                            <span>Valentin Dronne</span>
                             <span className="text-gray-300 dark:text-gray-700 not-italic">•</span>
-                            <span>Nirina</span>
+                            <span>Nirina Macon</span>
                         </div>
                     </div>
 
