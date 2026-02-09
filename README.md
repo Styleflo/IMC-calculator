@@ -7,17 +7,12 @@ ELle est réalisé dans le cadre du cours Conception et développement de systè
 
 ## Architecture
 
-+---------------------+
-|  Client - Frontend  |
-+---------------------+
-         |
-+-----------------+
-|   Serveur Web   |
-+--------+--------+
-         |
-+--------v---------+
-|  Base de données |
-+------------------+
+```mermaid
+graph LR
+    subgraph "Microsoft Azure"
+    A[Frontend : React & Tailwind] -- "Requêtes REST (JSON)" --> B[Backend : Node.js & Express]
+    B --> C[SQL]
+    end
 
 On a donc un serveur web - backend hebergé par Azure avec sa base de donnée et un client - frontend lui aussi hebergé par azure. 
 Les deux communiques entres eux.
