@@ -44,6 +44,9 @@ app.post('/api/imc', (req, res) => {
     res.json({ result: imc, category: categorie});
 });
 
+app.get('/', (req, res) => {
+    res.json({ Bonjour: 'Florian'});
+})
 
 // Configurer sur quel port on va écouter
 app.listen(port, () => {
