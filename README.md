@@ -39,9 +39,6 @@ On commence par cloner le projet
 ```bash 
 git clone https://github.com/votre-utilisateur/imc-calculator.git
 ``` 
-```bash
-git clone
-```
 
 Puis on demarre le serveur et le client
 ```bash
