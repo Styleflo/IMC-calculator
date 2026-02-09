@@ -29,5 +29,10 @@ Il est réalisé en React + Tailwind et fetch l'API du serveur.
 
 ## Démonstration 
 
+### En ligne
 Rendez-vous à l'url suivant: 
 ```https://agreeable-island-0bfe8d51e.1.azurestaticapps.net```
+
+### En locale
+
+```git clone [https://github.com/votre-utilisateur/imc-calculator.git](https://github.com/votre-utilisateur/imc-calculator.git)```
