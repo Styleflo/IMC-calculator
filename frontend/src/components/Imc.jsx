@@ -74,7 +74,7 @@ function Imc() {
                     <button
                         onClick={calculerIMC}
                         disabled={!estRempli}
-                        className={`w-full md:w-1/3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 rounded-xl shadow-md transition-all dark:from-indigo-900 dark:to-blue-900 
+                        className={`w-full md:w-1/3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 rounded-xl shadow-md transition-all dark:from-indigo-900 dark:to-blue-900 dark:text-white 
                         ${estRempli ? 'hover:shadow-lg hover:scale-[1.02] active:scale-95' : 'opacity-50 cursor-not-allowed'}`}>
                         Calculer mon IMC
                     </button>
