@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import Historique from './Historique.jsx'
 
 function ChampIMC({setChampIMC, example}) {
     return (
@@ -21,6 +22,8 @@ function Imc() {
 
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
+    const [refreshHistory, setRefreshHistory] = useState(0);
+
     const calculerIMC = async () => {
         if (estRempli) {
             try {
@@ -39,6 +42,7 @@ function Imc() {
                 const data = await response.json();
                 setResultat(data.result); // On stocke l'IMC reçu du serveur
                 setcategory(data.category);
+                setRefreshHistory(prev => prev + 1);
             } catch (error) {
                 console.error("Erreur lors du calcul:", error);
             }
@@ -83,7 +87,7 @@ function Imc() {
 
             {
                 resultat && (
-                    <div className="space-y-6 mt-8 p-6 bg-blue-50 rounded-2xl border border-blue-100 animate-bounce-in text-center dark:bg-slate-900 dark:border-slate-800">
+                    <div className="space-y-6 mt-8 p-6 bg-gray-50 rounded-2xl animate-bounce-in text-center dark:bg-white/5 border border-transparent">
                         <p className="text-4xl font-black text-indigo-700 mt-1 dark:text-white">{category}</p>
                         <div className="relative h-6 w-full bg-gray-200 rounded-full overflow-hidden flex mb-8">
                             <div className="h-full bg-blue-400" style={{ width: '15%' }}></div>     {/* Maigreur */}
@@ -105,6 +109,9 @@ function Imc() {
                     </div>
                 )
             }
+
+            <Historique refreshTrigger={refreshHistory} />
+
         </div>
     )
 }
