@@ -5,7 +5,7 @@ function ChampIMC({setChampIMC, example}) {
     return (
         <input
             type="number"
-            inputMode="decimal"
+            inputMode="numeric"
             placeholder={example}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:text-white"
             onKeyDown={(e) => ["e", "E", "+", "-", ",", "."].includes(e.key) && e.preventDefault()}
