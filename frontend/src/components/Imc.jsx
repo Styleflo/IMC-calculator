@@ -8,6 +8,7 @@ function ChampIMC({setChampIMC, example}) {
             inputMode="decimal"
             placeholder={example}
             className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all dark:text-white"
+            onKeyDown={(e) => ["e", "E", "+", "-", ",", "."].includes(e.key) && e.preventDefault()}
             onChange={(e) => setChampIMC(e.target.value)}
         />
     )
@@ -18,14 +19,18 @@ function Imc() {
     const [taille, setTaille] = useState('');
     const [resultat, setResultat] = useState(null);
     const [category, setcategory] = useState(null);
-    const estRempli = poids !== '' && taille !== '';
+
+    const poidsValide = poids !== '' && /^\d+$/.test(poids) && parseInt(poids) > 0;
+    const tailleValide = taille !== '' && /^\d+$/.test(taille) && parseInt(taille) > 0;
+
+    const peutCalculer = poidsValide && tailleValide;
 
     const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
     const [refreshHistory, setRefreshHistory] = useState(0);
 
     const calculerIMC = async () => {
-        if (estRempli) {
+        if (peutCalculer) {
             try {
                 // On envoie la requête POST au backend
                 const response = await fetch(`${apiUrl}/api/imc`, {
@@ -77,9 +82,9 @@ function Imc() {
                 <div className="flex justify-center">
                     <button
                         onClick={calculerIMC}
-                        disabled={!estRempli}
+                        disabled={!peutCalculer}
                         className={`w-full md:w-1/3 bg-gradient-to-r from-blue-600 to-indigo-700 text-white font-bold py-4 rounded-xl shadow-md transition-all dark:from-indigo-900 dark:to-blue-900 dark:text-white 
-                        ${estRempli ? 'hover:shadow-lg hover:scale-[1.02] active:scale-95' : 'opacity-50 cursor-not-allowed'}`}>
+                        ${peutCalculer ? 'hover:shadow-lg hover:scale-[1.02] active:scale-95' : 'opacity-50 cursor-not-allowed'}`}>
                         Calculer mon IMC
                     </button>
                 </div>
