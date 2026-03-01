@@ -3,7 +3,7 @@
 ## Introduction
 
 Cette application permet de calculer l'IMC d'une personne et de consulter un historique partagé. 
-ELle est réalisé dans le cadre du cours Conception et développement de systèmes infonuagiques à l'UQAC.
+Elle est réalisé dans le cadre du cours Conception et développement de systèmes infonuagiques à l'UQAC.
 
 ## Architecture
 
